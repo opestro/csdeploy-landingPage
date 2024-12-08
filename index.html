@@ -11,9 +11,14 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0a192f',
-                        secondary: '#112240',
-                        accent: '#64ffda',
+                        'cyber-pink': '#05D9E8',
+                        'cyber-blue': '#05D9E8',
+                        'cyber-purple': '#7700FF',
+                        'cyber-dark': '#1A1A2E',
+                        'cyber-darker': '#15152D',
+                        primary: '#1A1A2E',
+                        secondary: '#15152D',
+                        accent: '#05D9E8',
                     }
                 }
             }
@@ -316,25 +321,85 @@
             0%, 100% { opacity: 0.2; }
             50% { opacity: 0.5; }
         }
+
+        .cyber-glitch {
+            text-shadow: 
+                0.05em 0 0 rgba(255,42,109,0.75),
+                -0.025em -0.05em 0 rgba(5,217,232,0.75),
+                0.025em 0.05em 0 rgba(119,0,255,0.75);
+            animation: glitch 500ms infinite;
+        }
+
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(5,217,232,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(5,217,232,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 
+                    0.05em 0 0 rgba(255,42,109,0.75),
+                    -0.05em -0.025em 0 rgba(5,217,232,0.75),
+                    -0.025em 0.05em 0 rgba(119,0,255,0.75);
+            }
+            14% {
+                text-shadow: 
+                    0.05em 0 0 rgba(255,42,109,0.75),
+                    -0.05em -0.025em 0 rgba(5,217,232,0.75),
+                    -0.025em 0.05em 0 rgba(119,0,255,0.75);
+            }
+            15% {
+                text-shadow: 
+                    -0.05em -0.025em 0 rgba(255,42,109,0.75),
+                    0.025em 0.025em 0 rgba(5,217,232,0.75),
+                    -0.05em -0.05em 0 rgba(119,0,255,0.75);
+            }
+            49% {
+                text-shadow: 
+                    -0.05em -0.025em 0 rgba(255,42,109,0.75),
+                    0.025em 0.025em 0 rgba(5,217,232,0.75),
+                    -0.05em -0.05em 0 rgba(119,0,255,0.75);
+            }
+            50% {
+                text-shadow: 
+                    0.025em 0.05em 0 rgba(255,42,109,0.75),
+                    0.05em 0 0 rgba(5,217,232,0.75),
+                    0 -0.05em 0 rgba(119,0,255,0.75);
+            }
+            99% {
+                text-shadow: 
+                    0.025em 0.05em 0 rgba(255,42,109,0.75),
+                    0.05em 0 0 rgba(5,217,232,0.75),
+                    0 -0.05em 0 rgba(119,0,255,0.75);
+            }
+            100% {
+                text-shadow: 
+                    -0.025em 0 0 rgba(255,42,109,0.75),
+                    -0.025em -0.025em 0 rgba(5,217,232,0.75),
+                    -0.025em -0.05em 0 rgba(119,0,255,0.75);
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="fixed w-full bg-primary/90 backdrop-blur-md z-50 border-b border-accent/10">
+    <nav class="fixed w-full bg-primary/40 backdrop-blur-md z-50 border-b border-accent/10">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <span class="text-2xl font-bold text-accent">CSCC Deploy</span>
+                <div class="flex-shrink-0 flex items-center">
+                 <img src="./assets/logo.png" width="60" />   <span class="text-2xl font-bold">CSCC Deploy</span>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
-                        <a href="#features" class="text-gray-300 hover:text-accent transition-colors">Features</a>
-                        <a href="#quickstart" class="text-gray-300 hover:text-accent transition-colors">Quick Start</a>
-                        <a href="#faq" class="text-gray-300 hover:text-accent transition-colors">FAQ</a>
-                        <a href="#contact" class="text-gray-300 hover:text-accent transition-colors">Contact</a>
+                        <a href="#features" class="nav-link text-gray-300 hover:text-accent transition-colors">Features</a>
+                        <a href="#quickstart" class="nav-link text-gray-300 hover:text-accent transition-colors">Quick Start</a>
+                        <a href="#faq" class="nav-link text-gray-300 hover:text-accent transition-colors">FAQ</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-accent transition-colors">Contact</a>
                         <a href="https://github.com/opestro/csdeploy" 
                            class="bg-accent/10 text-accent px-4 py-2 rounded-lg hover:bg-accent/20 transition-colors">
                             GitHub
@@ -369,67 +434,88 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero relative">
-        <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-primary/50 to-secondary/50 backdrop-blur-sm"></div>
+    <section class="hero min-h-screen relative overflow-hidden bg-cyber-dark cyber-grid">
+        <div class="absolute inset-0 bg-gradient-to-b from-cyber-purple/20 to-cyber-dark/90"></div>
+        
+        <!-- Animated lines -->
+        <div class="absolute inset-0">
+            <div class="absolute h-px w-full top-1/4 bg-gradient-to-r from-transparent via-cyber-blue to-transparent animate-slide-right"></div>
+            <div class="absolute h-px w-full top-2/4 bg-gradient-to-r from-transparent via-cyber-pink to-transparent animate-slide-left"></div>
+            <div class="absolute h-px w-full top-3/4 bg-gradient-to-r from-transparent via-cyber-purple to-transparent animate-slide-right"></div>
+        </div>
 
-        <div class="container hero-content relative z-10">
-            <!-- Glowing Lines -->
-            <div class="absolute inset-0 overflow-hidden">
-                <div class="glowing-line-1"></div>
-                <div class="glowing-line-2"></div>
+        <div class="container mx-auto px-4 relative z-10 pt-32">
+            <!-- Updated Title and Description -->
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="cyber-glitch bg-clip-text text-transparent bg-gradient-to-r from-cyber-pink to-cyber-blue">
+                        Deploy in Seconds
+                    </span>
+                    <span class="block text-3xl md:text-4xl mt-4 text-cyber-blue/80 font-normal">
+                        Not Hours
+                    </span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-400 mb-8 leading-relaxed max-w-3xl mx-auto">
+                    Automated deployment tool that handles your FTP, SFTP, and SSH deployments 
+                    with a single command. Built for developers who value speed and simplicity.
+                </p>
+                
+                <!-- Key Features Pills -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <span class="px-4 py-2 rounded-full bg-cyber-pink/10 text-cyber-pink border border-cyber-pink/20 text-sm">
+                        Zero Configuration
+                    </span>
+                    <span class="px-4 py-2 rounded-full bg-cyber-blue/10 text-cyber-blue border border-cyber-blue/20 text-sm">
+                        Multi-Protocol Support
+                    </span>
+                    <span class="px-4 py-2 rounded-full bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/20 text-sm">
+                        Instant Rollbacks
+                    </span>
+                </div>
             </div>
 
-            <h1 class="text-6xl font-bold mb-6 tracking-tight">
-                Deploy Smarter
-                <span class="text-accent block mt-2">Build Faster</span>
-            </h1>
-
-            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-                Modern CLI deployment tool with intelligent file tracking and multi-protocol support
-            </p>
-
-            <!-- Command Terminal -->
-            <div class="max-w-2xl mx-auto">
-                <div class="bg-gray-900/80 rounded-lg backdrop-blur-md border border-accent/20 overflow-hidden">
-                    <!-- Terminal Header -->
-                    <div class="flex items-center px-4 py-2 bg-gray-800/50 border-b border-accent/10">
-                        <div class="flex space-x-2">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            <!-- Terminal with Installation Command -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="bg-cyber-darker/90 rounded-lg border border-cyber-pink/30 overflow-hidden backdrop-blur-xl">
+                    <div class="flex items-center justify-between px-4 py-2 bg-cyber-purple/20 border-b border-cyber-pink/20">
+                        <div class="flex items-center">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-cyber-pink"></div>
+                                <div class="w-3 h-3 rounded-full bg-cyber-blue"></div>
+                                <div class="w-3 h-3 rounded-full bg-cyber-purple"></div>
+                            </div>
+                            <span class="ml-4 text-sm text-cyber-blue">Quick Install</span>
                         </div>
-                        <span class="ml-4 text-sm text-gray-400">Terminal</span>
+                        <span class="text-xs text-cyber-pink/60">Ready in 5 seconds</span>
                     </div>
-                    
-                    <!-- Terminal Content -->
                     <div class="p-4 font-mono">
-                        <div class="flex items-center text-gray-300">
-                            <span class="text-accent">$</span>
-                            <span class="ml-2">npm install -g csdeploy</span>
-                            <span class="cursor"></span>
+                        <div class="flex items-center text-cyber-blue group">
+                            <span class="text-cyber-pink group-hover:animate-pulse">$</span>
+                            <span class="ml-2 typing-animation">npm install -g csdeploy</span>
+                            <span class="cursor">|</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Action Buttons -->
-                <div class="flex justify-center mt-8 space-x-4">
-                    <a href="https://github.com/opestro/csdeploy" 
-                       class="group relative px-8 py-3 bg-transparent border border-accent text-accent rounded-lg overflow-hidden hover:text-primary transition-colors duration-300">
-                        <span class="relative z-10">View on GitHub</span>
-                        <div class="absolute inset-0 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-                    </a>
-                    <a href="#docs" 
-                       class="group relative px-8 py-3 bg-accent/10 text-accent rounded-lg hover:bg-accent/20 transition-colors duration-300">
-                        Documentation
-                    </a>
-                </div>
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://github.com/opestro/web-deploy" 
+                   class="group relative px-8 py-3 bg-transparent border border-cyber-pink text-cyber-pink rounded-lg overflow-hidden hover:text-white transition-colors duration-300">
+                    <span class="relative z-10">Start Deploying</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyber-pink to-cyber-purple transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                </a>
+                <a href="#docs" 
+                   class="px-8 py-3 bg-cyber-pink/10 text-cyber-pink rounded-lg hover:bg-cyber-pink/20 transition-colors duration-300 border border-cyber-pink/30">
+                    Read Documentation
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 bg-gradient-to-b from-primary to-secondary">
+    <section id="features" class="py-20 bg-gradient-to-b from-primary to-secondary">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center text-white mb-16">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-accent to-blue-400">
@@ -512,7 +598,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-accent transition-colors">
-                        Automated Rollbacks (SOON)
+                        Automated Rollbacks [SOON]
                     </h3>
                     <p class="text-gray-400">
                         Automatic version tracking and instant rollback capabilities ensure zero-downtime deployments.
@@ -530,7 +616,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-accent transition-colors">
-                        CI/CD Integration (SOON)
+                        CI/CD Integration [SOON]
                     </h3>
                     <p class="text-gray-400">
                         Seamless integration with popular CI/CD platforms for automated deployment workflows.
@@ -541,7 +627,7 @@
     </section>
 
     <!-- Quick Start Section -->
-    <section class="py-20 bg-primary relative overflow-hidden">
+    <section id="quickstart" class="py-20 bg-primary relative overflow-hidden">
         <!-- Animated background grid -->
         <div class="absolute inset-0 grid grid-cols-8 grid-rows-8 gap-4 opacity-10">
             <div class="col-span-1 row-span-1 bg-accent/20 rounded animate-pulse"></div>
@@ -602,7 +688,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-gradient-to-b from-primary to-secondary relative overflow-hidden">
+    <section id="faq" class="py-20 bg-gradient-to-b from-primary to-secondary relative overflow-hidden">
         <!-- Animated lines background -->
         <div class="absolute inset-0">
             <div class="absolute h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent w-full top-1/4 animate-slide-right"></div>
