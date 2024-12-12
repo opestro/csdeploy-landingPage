@@ -181,6 +181,7 @@
                 <div class="hidden md:flex space-x-10">
                     <a href="#features" class="text-sm font-medium hover:text-primary transition-colors duration-300">Features</a>
                     <a href="#commands" class="text-sm font-medium hover:text-primary transition-colors duration-300">Commands</a>
+                    <a href="#browse" class="text-sm font-medium hover:text-primary transition-colors duration-300">Browse Mode</a>
                     <a href="#questions" class="text-sm font-medium hover:text-primary transition-colors duration-300">FAQ</a>
                     <a href="#start" class="text-sm font-medium hover:text-primary transition-colors duration-300">Quick Start</a>
                 </div>
@@ -199,10 +200,19 @@
         <div class="absolute inset-0 bg-gradient-to-b from-primary/10 via-secondary/5 to-dark"></div>
         <div class="container mx-auto px-6 relative">
             <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 
+                            px-6 py-3 rounded-full mb-8 border border-primary/20 backdrop-blur-sm
+                            animate-pulse">
+                    <span class="text-primary font-medium">🎉 v1.3.0 is now live!</span>
+                    <a href="#browse" class="text-secondary hover:text-secondary/80 transition-colors text-sm">
+                        See what's new →
+                    </a>
+                </div>
+                
                 <div class="text-primary text-lg font-medium mb-6">🚀 Welcome to the future</div>
                 <h1 class="text-6xl md:text-8xl font-bold mb-10 leading-tight tracking-tight">
                     Deployment
-                    <span class="gradient-text  mb-3 ">Reimagined.</span>
+                    <span class="gradient-text mb-3">Reimagined.</span>
                 </h1>
                 <p class="quote-text mb-12 max-w-3xl mx-auto">
                     "Elegance in simplicity. Power in execution."
@@ -210,28 +220,28 @@
                 <div class="flex flex-wrap justify-center gap-6 mb-12">
                     <!-- Command Interface Badge -->
                     <div class="premium-badge group">
-                        <div class="badge-icon">🎮</div>
+                        
                         <div class="badge-content">
-                            <h3 class="badge-title">Command Interface</h3>
-                            <p class="badge-description">Smart command execution & file operations</p>
+                            <h3 class="badge-title">🎮 Command Interface</h3>
+                            <!-- <p class="badge-description">Smart command execution & file operations</p> -->
                         </div>
                     </div>
-
+                
                     <!-- Deployment Matrix Badge -->
                     <div class="premium-badge group">
-                        <div class="badge-icon">🎯</div>
+                        <!-- <div class="badge-icon">🎯</div> -->
                         <div class="badge-content">
-                            <h3 class="badge-title">Deployment Matrix</h3>
-                            <p class="badge-description">Full-spectrum deployment with precision filtering</p>
+                            <h3 class="badge-title">🎯Deployment Matrix</h3>
+                            <!-- <p class="badge-description">Full-spectrum deployment with precision filtering</p> -->
                         </div>
                     </div>
-
+                
                     <!-- Security Suite Badge -->
                     <div class="premium-badge group">
-                        <div class="badge-icon">🛡️</div>
+                        <!-- <div class="badge-icon">🛡️</div> -->
                         <div class="badge-content">
-                            <h3 class="badge-title">Security Suite</h3>
-                            <p class="badge-description">Advanced encryption & secure file transfer</p>
+                            <h3 class="badge-title">🛡️ Security Suite</h3>
+                            <!-- <p class="badge-description">Advanced encryption & secure file transfer</p> -->
                         </div>
                     </div>
                 </div>
@@ -369,6 +379,80 @@
                                 <code class="command-text text-secondary block">csdeploy check-ignore</code>
                                 <span class="text-gray-500 text-sm ml-4 opacity-0 group-hover:opacity-100 transition-opacity">Verify ignore patterns</span>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse Section -->
+    <section id="browse" class="py-32 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="premium-badge inline-flex">🎉 NEW IN v1.3.0</div>
+                <div class="text-primary text-lg font-medium mt-6 mb-4">🔍 Interactive File Management</div>
+                <h2 class="text-5xl font-bold gradient-text mb-6">Browse Mode</h2>
+                <p class="mt-6 text-xl text-gray-400">Navigate and manage your deployments with unprecedented control</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="feature-card rounded-3xl p-12">
+                    <div class="bg-dark-accent p-8 rounded-xl mb-8">
+                        <code class="command-text text-primary block mb-4">csdeploy browse</code>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            <div class="space-y-3">
+                                <div class="group">
+                                    <code class="command-text text-secondary block">ls</code>
+                                    <span class="text-gray-500 text-sm ml-4">List files</span>
+                                </div>
+                                <div class="group">
+                                    <code class="command-text text-secondary block">cd &lt;dir&gt;</code>
+                                    <span class="text-gray-500 text-sm ml-4">Change directory</span>
+                                </div>
+                                <div class="group">
+                                    <code class="command-text text-secondary block">mkdir &lt;dir1&gt; [dir2...]</code>
+                                    <span class="text-gray-500 text-sm ml-4">Create directories</span>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="group">
+                                    <code class="command-text text-secondary block">rmv &lt;file1&gt; [file2...]</code>
+                                    <span class="text-gray-500 text-sm ml-4">Remove files</span>
+                                </div>
+                                <div class="group">
+                                    <code class="command-text text-secondary block">cp &lt;src&gt; &lt;dest&gt;</code>
+                                    <span class="text-gray-500 text-sm ml-4">Copy files</span>
+                                </div>
+                                <div class="group">
+                                    <code class="command-text text-secondary block">run &lt;command&gt;</code>
+                                    <span class="text-gray-500 text-sm ml-4">Execute commands</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="feature-card p-6 rounded-xl">
+                            <div class="feature-icon w-12 h-12 flex items-center justify-center mb-4">
+                                <span class="text-2xl">🔍</span>
+                            </div>
+                            <h3 class="feature-title text-lg mb-2">Interactive Navigation</h3>
+                            <p class="text-gray-400/90 text-sm">Browse through your deployment structure with ease</p>
+                        </div>
+                        <div class="feature-card p-6 rounded-xl">
+                            <div class="feature-icon w-12 h-12 flex items-center justify-center mb-4">
+                                <span class="text-2xl">⚡</span>
+                            </div>
+                            <h3 class="feature-title text-lg mb-2">Remote Execution</h3>
+                            <p class="text-gray-400/90 text-sm">Run commands directly on your deployment server</p>
+                        </div>
+                        <div class="feature-card p-6 rounded-xl">
+                            <div class="feature-icon w-12 h-12 flex items-center justify-center mb-4">
+                                <span class="text-2xl">🛡️</span>
+                            </div>
+                            <h3 class="feature-title text-lg mb-2">Secure Operations</h3>
+                            <p class="text-gray-400/90 text-sm">All actions are encrypted and secure by default</p>
                         </div>
                     </div>
                 </div>
